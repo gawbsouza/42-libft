@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:01:14 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/06 14:46:44 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/06 17:00:42 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define LIBFT_H
 
 int	ft_isalpha(int c);
+int	ft_isdigit(int c);
 
 #endif
