@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:01:14 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/12 21:14:43 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/13 02:46:00 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t c);
 void	*ft_memcpy(void *s1, const void *s2, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_memchr(const void *s, int c, size_t n);
 
 #endif
