@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 00:33:40 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/15 15:07:18 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/18 14:42:35 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	src_len = ft_strlen(src);
 	cpy_len = src_len + dst_len;
 	final_len = dst_len + 1;
+	if (dst_len > size)
+		return (src_len + size);
 	if (size <= final_len)
 		return (cpy_len);
 	index = 0;
