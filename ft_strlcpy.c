@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 22:06:41 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/14 22:55:50 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/18 15:02:19 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	index;
 	size_t	src_len;
 
-	index = 0;
 	src_len = ft_strlen(src);
-	while (src[index] && index < size - 1)
+	if (size > 0)
 	{
-		dst[index] = src[index];
-		index++;
-	}
-	if (index > 0)
+		index = 0;
+		while (src[index] && index < size - 1)
+		{
+			dst[index] = src[index];
+			index++;
+		}
 		dst[index] = '\0';
+	}
 	return (src_len);
 }
