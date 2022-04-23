@@ -6,7 +6,7 @@
 #    By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 14:02:53 by gasouza           #+#    #+#              #
-#    Updated: 2022/04/23 08:03:34 by gasouza          ###   ########.fr        #
+#    Updated: 2022/04/23 08:32:42 by gasouza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		  ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstsize_bonus.c
 		  
 B_SRC	= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c     \
-          ft_lstlast_bonus.c ft_lstadd_back_bonus.c
+          ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c
 
 ####	Commands
 CC		= cc
