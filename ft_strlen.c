@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 13:49:53 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/07 14:17:44 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/26 17:24:49 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	index;
+	size_t	len;
 
-	index = 0;
-	while (s[index++])
-		;
-	return (index - 1);
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
 }
