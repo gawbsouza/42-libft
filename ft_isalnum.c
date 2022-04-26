@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 17:15:17 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/06 17:24:38 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/26 16:28:39 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	if (c >= 48 && c <= 57)
-		return (1);
-	if (c >= 65 && c <= 90)
-		return (1);
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
