@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 16:31:57 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/11 16:41:53 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/26 17:10:28 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*tmp;
-	size_t	index;
+	char	*end;
 
-	index = 0;
-	tmp = NULL;
-	while (str[index])
-	{
-		if (str[index] == (char) c)
-			tmp = (char *) &str[index];
-		index++;
-	}
-	if (str[index] == (char) c)
-		tmp = (char *) &str[index];
-	return (tmp);
+	end = ft_strchr(str, '\0');
+	while (end > str && *end != (char) c)
+		end--;
+	if (*end == (char) c)
+		return (end);
+	return (NULL);
 }
