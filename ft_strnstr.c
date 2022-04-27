@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:06:40 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/18 16:05:20 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/27 08:51:58 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,16 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	out;
-	size_t	inn;
+	size_t	size;
 
-	if (!little)
+	if (!*little)
 		return ((char *) big);
-	out = 0;
-	inn = 0;
-	while (big[out] && out < len)
+	size = ft_strlen(little);
+	while (len-- >= size && *big)
 	{
-		if (big[out] == little[inn])
-			inn++;
-		else
-		{
-			if (!little[inn])
-				break ;
-			if (big[out] != little[inn])
-			inn = 0;
-		}
-		out++;
+		if (ft_strncmp(big, little, size) == 0)
+			return ((char *) big);
+		big++;
 	}
-	if (!little[inn])
-		return ((char *) &big[out - inn]);
 	return (NULL);
 }
