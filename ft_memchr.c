@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 02:46:54 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/26 21:58:13 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/27 09:53:21 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (n-- > 0)
+	while (n--)
 	{
 		if (*(unsigned char *) s == (unsigned char) c)
 			return ((void *) s);

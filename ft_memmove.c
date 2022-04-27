@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:07:56 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/26 22:56:58 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/27 09:54:11 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	void	*tmp;
 
 	tmp = dst;
-	while (n-- > 0)
+	while (n--)
 	{
 		if (dst < src)
 			*(char *) tmp++ = *(char *) src++;
