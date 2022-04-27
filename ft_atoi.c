@@ -6,61 +6,39 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 21:05:04 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/19 21:38:26 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/27 14:48:58 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-static char	*trim_left(char *str)
+static int	calc(const char *s, int *number)
 {
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	return (str);
-}
+	int	multiple;
 
-static int	comp_number(char *str, char signal, int max_factor)
-{
-	int	number;
-	int	factor;
-
-	number = 0;
-	factor = 1;
-	while (!*str || !ft_isdigit(*str))
-		str--;
-	while (factor <= max_factor)
-	{
-		number += (*str - '0') * factor;
-		factor *= 10;
-		str--;
-	}
-	if (signal == '-')
-		return (number * -1);
-	return (number);
+	if (!ft_isdigit(*s))
+		return (1);
+	multiple = calc(s + 1, number);
+	*number += (*s - '0') * multiple;
+	return (multiple * 10);
 }
 
 int	ft_atoi(const char *s)
 {
-	int		factor;
-	char	signal;
-	char	*str;
+	int		number;
+	int		negative;
 
-	signal = '\0';
-	factor = 0;
-	str = (char *) s;
-	str = trim_left(str);
-	if (*str == '+' || *str == '-')
-		signal = *str++;
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			break ;
-		if (factor == 0)
-			factor = 1;
-		else
-			factor *= 10;
-		str++;
-	}
-	return (comp_number(str, signal, factor));
+	number = 0;
+	negative = 0;
+	while (ft_strchr("\t\n\v\f\r ", *s))
+		s++;
+	negative = *s == '-';
+	if (*s == '+' || *s == '-')
+		s++;
+	if (!*s || !ft_isdigit(*s))
+		return (0);
+	calc(s, &number);
+	if (negative)
+		return (number * -1);
+	return (number);
 }
