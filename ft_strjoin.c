@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 14:41:32 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/20 14:59:59 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/27 21:30:37 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,20 @@
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	size_t	size;
-	size_t	index_new;
-	size_t	index_old;
 	char	*new;
+	char	*tmp;
 
 	size = ft_strlen(s1);
 	size += ft_strlen(s2);
-	new = malloc(size * sizeof(char));
-	if (!new)
-		return (NULL);
-	index_old = 0;
-	while (s1[index_old])
+	new = (char *) malloc((size + 1) * sizeof(char));
+	if (new != NULL)
 	{
-		new[index_old] = s1[index_old];
-		index_old++;
-	}
-	index_new = index_old;
-	index_old = 0;
-	while (s2[index_old])
-	{
-		new[index_new + index_old] = s2[index_old];
-		index_old++;
+		tmp = new;
+		while (*s1)
+			*tmp++ = *s1++;
+		while (*s2)
+			*tmp++ = *s2++;
+		*tmp = '\0';
 	}
 	return (new);
 }
