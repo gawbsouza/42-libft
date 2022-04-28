@@ -6,70 +6,56 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 15:13:01 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/21 09:23:41 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/28 10:20:45 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static size_t	substrs_count(const char *s, char c)
+static char	**resize(char **old, char *str)
 {
-	size_t	count;
+	char	**new;
+	size_t	size;
 
-	count = 1;
-	while (*s)
+	size = 0;
+	while (old && old[size] != NULL)
+		size++;
+	new = (char **) malloc((size + 2) * sizeof(char *));
+	if (new != NULL)
 	{
-		if (*s == c && *(s + 1) != c && *(s + 1))
-			count++;
-		s++;
+		new[size] = str;
+		new[size + 1] = NULL;
+		while (size--)
+			new[size] = old[size];
+		if (old != NULL)
+			free(old);
 	}
-	return (count);
-}
-
-static const char	*trim_left(const char *s, char c)
-{
-	while (*s && *s == c)
-		s++;
-	return (s);
-}
-
-static size_t	delimiter_pos(const char *s, char c)
-{
-	size_t	walked;
-
-	walked = 0;
-	while (*s && *s != c)
-	{
-		s++;
-		walked++;
-	}
-	return (walked);
+	return (new);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	size_t	size;
-	size_t	i;
-	size_t	walked;
-	char	**array;
+	char	**new;
+	size_t	len;
 
-	size = substrs_count(s, c);
-	array = malloc(sizeof(char **) * (size + 1));
-	if (!array)
-		return (NULL);
-	i = 0;
-	while (i < size && *s)
+	new = (char **) malloc(sizeof(char *));
+	if (new != NULL)
 	{
-		s = trim_left(s, c);
-		if (*s)
+		*new = NULL;
+		while (s && *s)
 		{
-			walked = delimiter_pos(s, c);
-			array[i] = ft_substr(s, 0, walked);
-			s += walked;
-		}
-		i++;
+			while (*s && *s == c)
+				s++;
+			len = 0;
+			while (s[len] && s[len] != c)
+				len++;
+			if (len)
+			{
+				new = resize(new, ft_substr(s, 0, len));
+				s += len;
+			}
+		}	
 	}
-	array[i] = NULL;
-	return (array);
+	return (new);
 }
