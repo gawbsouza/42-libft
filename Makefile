@@ -6,38 +6,36 @@
 #    By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 14:02:53 by gasouza           #+#    #+#              #
-#    Updated: 2022/04/23 15:44:27 by gasouza          ###   ########.fr        #
+#    Updated: 2022/04/28 12:43:12 by gasouza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-####	Names
-NAME	= libft.a
-SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-          ft_tolower.c ft_toupper.c ft_strlen.c ft_memset.c ft_strchr.c    \
-		  ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_memcpy.c    \
-		  ft_memmove.c ft_bzero.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c   \
-		  ft_atoi.c ft_strdup.c ft_calloc.c ft_strtrim.c ft_substr.c ft_strjoin.c \
-		  ft_split.c ft_itoa.c ft_striteri.c ft_strmapi.c ft_putchar_fd.c  \
-		  ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstsize_bonus.c
-		  
-B_SRC	= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c     \
-          ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c   \
-		  ft_lstclear_bonus.c ft_lstiter_bonus.c
+NAME	=	libft.a
 
-####	Commands
-CC		= cc
-CFLAGS	= -Wall -Werror -Wextra
-AR		= ar -rc
-RM		= rm -f
+SRCS	=	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	\
+			ft_isprint.c	ft_tolower.c	ft_toupper.c	ft_strlen.c		\
+          	ft_memset.c		ft_strchr.c		ft_strrchr.c	ft_strncmp.c	\
+		  	ft_memchr.c		ft_memcmp.c		ft_memcpy.c		ft_memmove.c	\
+		  	t_bzero.c		ft_strlcpy.c	ft_strlcat.c	ft_strnstr.c	\
+			ft_atoi.c		ft_strdup.c		ft_calloc.c		ft_strtrim.c	\
+			ft_substr.c		ft_strjoin.c	ft_split.c		ft_itoa.c		\
+		  	ft_striteri.c	ft_strmapi.c	ft_putchar_fd.c	ft_putstr_fd.c	\
+			ft_putendl_fd.c	ft_putnbr_fd.c
 
-####	Auxiliaries
-OBJS	= $(SRCS:.c=.o)
-B_OBJS	= $(B_SRC:.c=.o)
+B_SRC	=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	\
+			ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c	\
+			ft_lstclear.c	ft_lstiter.c		ft_lstmap.c		\
+			ft_lstsize.c
 
-####	Phony
+CC		=	cc
+CFLAGS	=	-Wall -Werror -Wextra
+AR		=	ar -rc
+RM		=	rm -f
+OBJS	=	$(SRCS:.c=.o)
+B_OBJS	=	$(B_SRC:.c=.o)
+
 .PHONY: all clean fclean re
 
-####	Logic
 all: $(NAME)
 
 $(NAME): $(OBJS)
