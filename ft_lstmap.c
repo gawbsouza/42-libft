@@ -6,12 +6,11 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:03:33 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/28 17:33:16 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/28 17:45:20 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

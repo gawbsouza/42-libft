@@ -6,12 +6,11 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 21:07:56 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/27 09:54:11 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/28 17:46:35 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
