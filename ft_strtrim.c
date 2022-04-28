@@ -6,57 +6,22 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:27:16 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/20 11:07:33 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/27 22:15:00 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	in_array(char c, const char *str)
-{
-	while (*str && *str != c)
-		str++;
-	return (*str == c);
-}
-
-static void	trim_left(char *str, const char *set)
-{
-	size_t	i;
-
-	while (*str && in_array(*str, set))
-	{
-		i = 0;
-		while (str[i])
-		{
-			str[i] = str[i + 1];
-			i++;
-		}
-	}
-}
-
-static void	trim_right(char *str, const char *set)
-{
-	char	*last_char;
-
-	last_char = str;
-	while (*last_char)
-		last_char++;
-	last_char--;
-	while (last_char > str && in_array(*last_char, set))
-	{
-		*last_char = '\0';
-		last_char--;
-	}
-}
-
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	char	*str;
+	size_t	size;
 
-	str = ft_strdup(s1);
-	if (!str)
+	if (!s1)
 		return (NULL);
-	trim_left(str, set);
-	trim_right(str, set);
-	return (str);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	size = ft_strlen(s1);
+	while (size && ft_strchr(set, s1[size]))
+		size--;
+	return (ft_substr(s1, 0, size + 1));
 }
