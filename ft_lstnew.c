@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 16:13:20 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/22 16:27:36 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/28 12:29:37 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *list;
+	t_list	*list;
 
 	list = (t_list *) malloc(sizeof(t_list));
-	if (!list)
-		return (NULL);
-	list->content = content;
-	list->next = NULL;
+	if (list != NULL)
+	{
+		list->content = content;
+		list->next = NULL;
+	}
 	return (list);
 }
