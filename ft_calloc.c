@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:24:06 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/28 23:07:09 by gasouza          ###   ########.fr       */
+/*   Updated: 2022/04/30 23:22:30 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {	
 	void	*ptr;
 	size_t	ptr_size;
-	size_t	max_size;
 
-	if (!size || !nmemb)
-		return (NULL);
-	max_size = -1;
-	if (nmemb > max_size / size)
-		return (NULL);
 	ptr_size = nmemb * size;
+	if (ptr_size != 0 && ptr_size / nmemb != size)
+		return (NULL);
 	ptr = malloc(ptr_size);
 	if (ptr != NULL)
 		ft_bzero(ptr, ptr_size);
