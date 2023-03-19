@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 21:30:34 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/27 09:55:41 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/19 16:29:51 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	while (n--)
-		*(char *) s++ = 0;
+	size_t	byte_index;
+	char	*current_mem_byte;
+
+	byte_index = 0;
+	while (byte_index < n)
+	{
+		current_mem_byte = (s + byte_index);
+		*current_mem_byte = 0;
+		byte_index++;
+	}
 }
