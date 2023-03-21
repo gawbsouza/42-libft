@@ -6,7 +6,7 @@
 #    By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 14:02:53 by gasouza           #+#    #+#              #
-#    Updated: 2023/03/19 18:56:40 by gasouza          ###   ########.fr        #
+#    Updated: 2023/03/21 15:34:56 by gasouza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,11 @@ SRCS_F	= 	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	\
 			
 SRCS	= 	$(addprefix $(SRCS_D)/, $(SRCS_F))
 
-B_SRC	=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	\
+B_SRC_F	=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c	\
 			ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c	\
 			ft_lstclear.c	ft_lstiter.c		ft_lstmap.c		\
 			ft_lstsize.c
+B_SRC	= 	$(addprefix $(SRCS_D)/, $(B_SRC_F))			
 			
 OBJS	=	$(SRCS:.c=.o)
 B_OBJS	=	$(B_SRC:.c=.o)
