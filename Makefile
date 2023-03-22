@@ -6,7 +6,7 @@
 #    By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 14:02:53 by gasouza           #+#    #+#              #
-#    Updated: 2023/03/21 15:34:56 by gasouza          ###   ########.fr        #
+#    Updated: 2023/03/22 09:41:04 by gasouza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,10 @@ RM		=	rm -f
 
 .PHONY: all
 all: $(NAME)
+
+.PHONY: both
+both: $(OBJS) $(B_OBJS)
+	$(AR) $(NAME) $^
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
