@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 21:05:04 by gasouza           #+#    #+#             */
-/*   Updated: 2023/03/19 18:27:25 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 10:33:52 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 static const char	*skip_empty_chars(const char *str);
 static const char	*skip_signal_prefix(const char *str);
-static int	ascii_to_number(const char c);
+static int			ascii_to_number(const char c);
 
 int	ft_atoi(const char *str)
 {
