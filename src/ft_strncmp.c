@@ -6,20 +6,20 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 16:51:04 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/27 09:48:14 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 14:58:37 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t c)
+int	ft_strncmp(const char *str1, const char *str2, size_t c)
 {
 	while (c--)
 	{
-		if (!*s1 || !*s2 || *s1 != *s2)
-			return ((unsigned char) *s1 - (unsigned char) *s2);
-		s1++;
-		s2++;
+		if (!*str1 || !*str2 || *str1 != *str2)
+			return ((t_uchar) * str1 - (t_uchar) * str2);
+		str1++;
+		str2++;
 	}
 	return (0);
 }

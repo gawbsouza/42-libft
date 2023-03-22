@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 21:05:04 by gasouza           #+#    #+#             */
-/*   Updated: 2023/03/22 10:33:52 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 14:44:36 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 static const char	*skip_empty_chars(const char *str);
 static const char	*skip_signal_prefix(const char *str);
 static int			ascii_to_number(const char c);
+static int			get_max_place_value(const char *str);
 
 int	ft_atoi(const char *str)
 {
@@ -32,15 +33,15 @@ int	ft_atoi(const char *str)
 	int			place_value;
 
 	final_number = 0;
-	place_value = 1;
 	str = skip_empty_chars(str);
 	is_negative = *str == '-';
 	current_char = skip_signal_prefix(str);
+	place_value = get_max_place_value(current_char);
 	while (*current_char && ft_isdigit(*current_char))
 	{
 		final_number += ascii_to_number(*current_char) * place_value;
 		current_char++;
-		place_value *= NUMBER_BASE;
+		place_value /= NUMBER_BASE;
 	}
 	if (is_negative)
 		final_number *= -1;
@@ -64,4 +65,20 @@ static const char	*skip_signal_prefix(const char *str)
 static int	ascii_to_number(const char c)
 {
 	return (c - '0');
+}
+
+static int	get_max_place_value(const char *str)
+{
+	int	max_place_value;
+
+	max_place_value = 0;
+	while (*str && ft_isdigit(*str))
+	{
+		if (!max_place_value)
+			max_place_value = 1;
+		else
+			max_place_value *= NUMBER_BASE;
+		str++;
+	}
+	return (max_place_value);
 }

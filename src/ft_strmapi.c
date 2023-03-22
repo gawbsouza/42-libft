@@ -6,26 +6,26 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 15:11:10 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/28 17:47:54 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 11:08:49 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
 {
-	char	*str;
+	char	*new_str;
 	size_t	i;
 
-	str = ft_strdup(s);
-	if (str != NULL)
+	new_str = ft_strdup(str);
+	if (new_str)
 	{
 		i = 0;
-		while (s[i])
+		while (str[i])
 		{
-			str[i] = f(i, s[i]);
+			new_str[i] = f(i, str[i]);
 			i++;
 		}
 	}
-	return (str);
+	return (new_str);
 }

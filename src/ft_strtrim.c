@@ -6,22 +6,22 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:27:16 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/27 22:15:00 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 10:53:53 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(const char *str, const char *set)
 {
 	size_t	size;
 
-	if (!s1)
+	if (!str)
 		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	size = ft_strlen(s1);
-	while (size && ft_strchr(set, s1[size]))
+	while (*str && ft_strchr(set, *str))
+		str++;
+	size = ft_strlen(str);
+	while (size && ft_strchr(set, str[size]))
 		size--;
-	return (ft_substr(s1, 0, size + 1));
+	return (ft_substr(str, 0, size + 1));
 }

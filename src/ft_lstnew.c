@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 16:13:20 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/28 12:29:37 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 11:21:55 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstnew(void *content)
 	t_list	*list;
 
 	list = (t_list *) malloc(sizeof(t_list));
-	if (list != NULL)
+	if (list)
 	{
 		list->content = content;
 		list->next = NULL;

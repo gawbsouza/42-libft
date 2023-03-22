@@ -6,19 +6,19 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 02:46:54 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/27 09:53:21 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 14:52:15 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *mem, int c, size_t n)
 {
 	while (n--)
 	{
-		if (*(unsigned char *) s == (unsigned char) c)
-			return ((void *) s);
-		s++;
+		if (*(t_uchar *) mem == (t_uchar) c)
+			return ((void *) mem);
+		mem++;
 	}
 	return (NULL);
 }

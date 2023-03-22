@@ -6,30 +6,29 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 14:41:32 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/27 21:30:37 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 11:05:47 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(const char *str1, const char *str2)
 {
-	size_t	size;
-	char	*new;
-	char	*tmp;
+	size_t	len_str1;
+	size_t	len_str2;
+	size_t	len_new_str;
+	char	*new_str;
 
-	size = ft_strlen(s1);
-	size += ft_strlen(s2);
-	new = (char *) malloc((size + 1) * sizeof(char));
-	if (new != NULL)
+	len_str1 = ft_strlen(str1);
+	len_str2 = ft_strlen(str2);
+	len_new_str = len_str1 + len_str2;
+	new_str = (char *) malloc((len_new_str + 1) * sizeof(char));
+	if (new_str)
 	{
-		tmp = new;
-		while (*s1)
-			*tmp++ = *s1++;
-		while (*s2)
-			*tmp++ = *s2++;
-		*tmp = '\0';
+		ft_memcpy(new_str, str1, len_str1);
+		ft_memcpy(new_str + len_str1, str2, len_str2);
+		new_str[len_new_str] = '\0';
 	}
-	return (new);
+	return (new_str);
 }

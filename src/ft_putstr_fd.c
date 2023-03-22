@@ -6,14 +6,14 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 15:32:45 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/22 15:37:07 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 11:37:19 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *str, int fd)
 {
-	while (*s)
-		ft_putchar_fd(*s++, fd);
+	write(fd, str, ft_strlen(str));
 }

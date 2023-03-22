@@ -6,18 +6,18 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 13:49:53 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/26 17:24:49 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 10:39:08 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
 	size_t	len;
 
 	len = 0;
-	while (*s++)
+	while (*str++)
 		len++;
 	return (len);
 }

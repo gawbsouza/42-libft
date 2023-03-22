@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 07:26:58 by gasouza           #+#    #+#             */
-/*   Updated: 2022/04/23 07:31:28 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 11:22:39 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst != NULL && lst->next != NULL)
+	while (lst && lst->next)
 		lst = lst->next;
 	return (lst);
 }
