@@ -6,7 +6,7 @@
 /*   By: gasouza <gasouza@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 14:01:14 by gasouza           #+#    #+#             */
-/*   Updated: 2023/03/22 17:19:48 by gasouza          ###   ########.fr       */
+/*   Updated: 2023/03/22 17:29:12 by gasouza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 // Just to facilitate acceptance of norminette :)
 typedef unsigned char	t_uchar;
+typedef const char		t_cchar;
 
 // Characters validation functions
 int		ft_isalpha(int c);
