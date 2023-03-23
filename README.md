@@ -27,7 +27,7 @@ Para conseguir compilar corretamente a biblioteca, o seu sistema necessitará pr
 - [make (GNU Make)](https://www.gnu.org/software/make/)
 
 ## Compilação
- Para este projeto, há três possibilidades para compilação da biblioteca, parte mandatóris, parte bônus, e ambas partes ao mesmo tempo.
+ Para este projeto, há três possibilidades para compilação da biblioteca, parte mandatória, parte bônus, e ambas partes juntas.
 
 ### Parte mandatória
 Basta chamar o Make sem especificar nenhuma regra ou utilizar a regra `all` do Make:
@@ -54,8 +54,8 @@ make clean
 ## Outras regras diponíveis no Make
 Foram criadas mais algumas regras no Make para faciliar a manipulação do projeto:
 
-- `make` ou `make all`: compila os objetos do código-fonte e cria o arquivo *libft.a*.  
-- `make clean`: remove todos os objetos temporários gerados durante a fase de compilação do código-fonte (arquivos .o).   
+- `make` ou `make all`: compila os arquivos de código-fonte (arquivos `.c`) gerando os objetos (arquivos `.o`) e cria o arquivo *libft.a*.  
+- `make clean`: remove todos os objetos temporários gerados durante a fase de compilação do código-fonte.   
 - `make fclean`: remove os objetos temporários e também o arquivo libft.a.  
 - `make re`: remove todos os objetos temporários, o arquivo *libft.a* e refaz novamente o processo de compilação.  
 
@@ -72,14 +72,14 @@ void main()
 ```
 
 ### Informe a localização do header na compilação
-Após finalizar a codificação do seu código-fonte, será necessário adicionar mais um estapa antes de compilar, é preciso informar para o compilador onde está localizado o header (libft.h).  
- Para informar a localização do header utilize a flag `-I` do gcc e adicione a localização do arquivo *libft.h*
+Após finalizar a codificação do seu código-fonte, temos a parte de compilação dos objetos, para isso será preciso informar ao compilador onde está localizado o header (libft.h).  
+Para informar a localização do header utilize a flag `-I` do gcc e adicione a localização do arquivo *libft.h*, assim a compilação poderá ocorrer sem problemas.
 ```bash
 gcc -I ./libft_folder/inc -c my_code.c
 ```
 ### Informe a localização do arquivo libft.a na linkagem
 Após a compilação dos objetos é hora de fazer a linkagem, para isso é necessário informar também a localização do arquivo *libft.a* e incluir sua utilização explicitamente.  
-Será necessários utilizar as flags `-l` e `-L` do gcc, `-l` para incluir a utilização da biblioteca e `-L` para informar a localização do arquivo *.a*
+Será necessários utilizar as flags `-l` e `-L` do gcc, `-l` para incluir a utilização da biblioteca explicitamente e `-L` para informar a localização do arquivo *.a*
 ```bash
 gcc my_code.o -L libft_folder -l ft
 ```
@@ -88,8 +88,7 @@ Agora é só utilizá-la em suas aplicações!
 ## Funções disponíveis na libft
 Abaixo temos a listagem e descrição de todas as funções disponíveis na libft para você utilizar em seus projetos:
 
-### Funções validadoras de caracteres
-| |
+| Funções validadoras de caracteres |
 | --- |  
 | int ft_isalpha(int c) |  
 | int ft_isdigit(int c) |  
@@ -97,14 +96,13 @@ Abaixo temos a listagem e descrição de todas as funções disponíveis na libf
 | int ft_isascii(int c) | 
 | int ft_isprint(int c) | 
 
-### Funções manipuladoras de caracteres
-| |
+| Funções manipuladoras de caracteres |
 | --- |  
 | int ft_toupper(int c) |  
 | int ft_tolower(int c) | 
 
-### Funções para trabalhar com strings
-| |
+
+| Funções para trabalhar com strings |
 | --- |
 |size_t ft_strlen(const char *str)|  
 |char *ft_strdup(const char *str)|  
@@ -121,14 +119,12 @@ Abaixo temos a listagem e descrição de todas as funções disponíveis na libf
 |void ft_striteri(char *str, void (*f)(unsigned int, char *))|  
 |char *ft_strmapi(const char *str, char (*f)(unsigned int, char))|  
 
-### Funções para trabalhar com inteiros
-| |
+| Funções para trabalhar com inteiros |
 | --- |
 |int ft_atoi(const char *str)| 
 |char *ft_itoa(int n)| 
 
-### Funções para manipular diretamente a memória
-| |
+| Funções para manipular diretamente a memória |
 | --- |
 |void ft_bzero(void *mem, size_t n); void *ft_calloc(size_t nmemb, size_t size)| 
 |int ft_memcmp(const void *mem1, const void *mem2, size_t n)|  
@@ -137,16 +133,14 @@ Abaixo temos a listagem e descrição de todas as funções disponíveis na libf
 |void *ft_memchr(const void *mem, int c, size_t n)|  
 |void *ft_memset(void *mem, int c, size_t n)|  
 
-### Funções para impressão de strings
-| |
+| Funções para impressão de strings |
 | --- |
 |void ft_putchar_fd(char c, int fd)|  
 |void ft_putnbr_fd(int n, int fd)|  
 |void ft_putstr_fd(char *str, int fd)|  
 |void ft_putendl_fd(char *str, int fd)|  
 
-### Funções para trabalhar com listas linkadas
-| |
+| Funções para trabalhar com listas linkadas |
 | --- |
 |t_list *ft_lstnew(void *content);|  
 |void ft_lstadd_front(t_list **lst, t_list *new)|  
