@@ -1,8 +1,8 @@
 <div align=center>
 
-[![](./libft_light.svg)](#)
+[![](./img/libft_light.svg)](#)
 
-[![](./42pdh_badge.svg)](https://github.com/gawbsouza/42-pdh)
+[![](./img/42pdh_badge.svg)](https://github.com/gawbsouza/42-pdh)
 
 </div>
 
