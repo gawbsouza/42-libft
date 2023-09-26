@@ -117,11 +117,12 @@ Abaixo temos a listagem e descrição de todas as funções disponíveis na libf
 - [char \*ft_strmapi(const char \*str, char (\*f)(unsigned int, char))](./src/ft_strmapi.c) 
 
 ### Funções para trabalhar com inteiros
-- [int ft_atoi(const char \*str](./src/ft_atoi.c) 
-- [char \*ft_itoa(int n](./src/ft_itoa.c) 
+- [int ft_atoi(const char \*str)](./src/ft_atoi.c) 
+- [char \*ft_itoa(int n)](./src/ft_itoa.c) 
 
 ### Funções para manipular diretamente a memória
-- [void ft_bzero(void \*mem, size_t n); void \*ft_calloc(size_t nmemb, size_t size](./src/ft_bzero.c) 
+- [void ft_bzero(void \*mem, size_t n)](./src/ft_bzero.c)
+- [void \*ft_calloc(size_t nmemb, size_t size)](./src/ft_calloc.c) 
 - [int ft_memcmp(const void \*mem1, const void \*mem2, size_t n)](./src/ft_memcmp.c) 
 - [void \*ft_memcpy(void \*mem1, const void \*mem2, size_t n)](./src/ft_memcpy.c) 
 - [void \*ft_memmove(void \*dst, const void \*src, size_t n)](./src/ft_memmove.c) 
