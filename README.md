@@ -97,7 +97,7 @@ Abaixo temos a listagem e descrição de todas as funções disponíveis na libf
 
 ### Funções manipuladoras de caracteres
 - [int ft_toupper(int c)](./src/ft_toupper.c)
-- [int ft_tolower(int c](./src/ft_tolower.c)
+- [int ft_tolower(int c)](./src/ft_tolower.c)
 
 
 ### Funções para trabalhar com strings
@@ -136,7 +136,7 @@ Abaixo temos a listagem e descrição de todas as funções disponíveis na libf
 - [void ft_putendl_fd(char \*str, int fd)](./src/ft_putendl_fd.c) 
 
 ### Funções para trabalhar com listas linkadas
-- [t_list \*ft_lstnew(void \*content);](./src/ft_lstnew.c) 
+- [t_list \*ft_lstnew(void \*content)](./src/ft_lstnew.c) 
 - [void ft_lstadd_front(t_list \*\*lst, t_list \*new)](./src/ft_lstadd_front.c) 
 - [void ft_lstadd_back(t_list \*\*lst, t_list \*new)](./src/ft_lstadd_back.c) 
 - [int ft_lstsize(t_list \*lst)](./src/ft_lstsize.c) 
