@@ -1,150 +1,306 @@
-<div align=center>
+<div align="center">
 
-[![](./img/libft_light.svg)](#)
-
-[![](./img/42pdh_badge.svg)](https://github.com/gawbsouza/42-pdh)
+# Libft
 
 </div>
 
 ---
 
-> 🏆 Esse código-fonte também inlclui a parte bônus do projeto.
+## Description
+
+Libft is a static C library developed as part of the [École 42](https://42.fr/en/homepage/) curriculum. It reimplements classic libc functions and provides utilities for string, memory, and linked list manipulation, among others.
 
 ---
 
-> ## 🎠 Norma / Norminette
-> Toda a codificação do código-fonte desse projeto está seguindo a especificação da [Norma 3.3.x](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf) e foi devidamente testado e aprovado pela [Norminette](https://github.com/42School/norminette). Não estranhe se o estilo ao qual o código foi desenvolvido pareça diferente pra você, ele só segue o estilo da 42 😀.
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Available Functions](#available-functions)
+- [Norminette](#norminette)
+- [License](#license)
 
 ---
 
-## O que é a libft?
-A libft é uma biblioteca estática de uso geral, escrita em C com a principal finalidade de ser utilizada nos projetos da [École 42](https://42.fr/en/homepage/).
+## Installation
 
-## Pré-requisitos
-Para conseguir compilar corretamente a biblioteca, o seu sistema necessitará previamente ter instalado e configurado as seguintes ferramentas:
+**Requirements:**
+- [gcc](https://gcc.gnu.org/)
+- [make](https://www.gnu.org/software/make/)
 
-- [gcc (GNU C Compiler)](https://gcc.gnu.org/)  
-- [make (GNU Make)](https://www.gnu.org/software/make/)
-
-## Compilação
- Para este projeto, há três possibilidades para compilação da biblioteca, parte mandatória, parte bônus, e ambas partes juntas.
-
-### Parte mandatória
-Basta chamar o Make sem especificar nenhuma regra ou utilizar a regra `all` do Make:
+Build the library:
 ```bash
- make all
+make
 ```
-### Parte bônus
-Basta chamar a regra `bonus` do Make:
-```bash
-make bonus
-```
-### Parte mandatória e bônus juntas
-Para projetos onde se é necessário utilizar as funções da parte mandatória e bônus juntas, a regra `both` do Make permite essa facilidade na compilação:
-```bash
-make both
-```
-Se tudo ocorrer corretamente será gerado o arquivo *libft.a*.  
 
-Para remover os objetos temporários (arquivos `.o`) 
-que foram utilizados na compilação, chame novamentente o make:
-```bash
-make clean
-```
-## Outras regras diponíveis no Make
-Foram criadas mais algumas regras no Make para faciliar a manipulação do projeto:
+---
 
-- `make` ou `make all`: compila os arquivos de código-fonte (arquivos `.c`) gerando os objetos (arquivos `.o`) e cria o arquivo *libft.a*.  
-- `make clean`: remove todos os objetos temporários gerados durante a fase de compilação do código-fonte.   
-- `make fclean`: remove os objetos temporários e também o arquivo libft.a.  
-- `make re`: remove todos os objetos temporários, o arquivo *libft.a* e refaz novamente o processo de compilação.  
+## Usage
 
-## Como utilizar libft em seu projeto
-### Adicione o header
-Adicione o *libft.h* no início do código-fonte onde pretende utilizar as funções da biblioteca:
+1. **Include the header in your code:**
+   ```c
+   #include "libft.h"
+   ```
+
+2. **Compile your code with libft:**
+   ```bash
+   gcc -I ./inc -L . -lft your_code.c -o your_program
+   ```
+   - `-I ./inc` tells the compiler where the header is.
+   - `-L .` tells where the compiled library (`libft.a`) is.
+   - `-lft` links with libft.
+
+---
+
+## Available Functions
+
+| Category                | Main functions                                                                      |
+|-------------------------|-------------------------------------------------------------------------------------|
+| Character validation    | `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`               |
+| Character manipulation  | `ft_toupper`, `ft_tolower`                                                         |
+| String manipulation     | `ft_strlen`, `ft_strdup`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strjoin`, `ft_split`, `ft_strtrim`, `ft_substr`, `ft_strlcpy`, `ft_strlcat`, `ft_strnstr`, `ft_striteri`, `ft_strmapi` |
+| Memory manipulation     | `ft_memset`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`, `ft_bzero`, `ft_calloc` |
+| Conversion              | `ft_atoi`, `ft_itoa`                                                               |
+| Output                  | `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`                   |
+| Linked lists            | `ft_lstnew`, `ft_lstadd_front`, `ft_lstadd_back`, `ft_lstsize`, `ft_lstlast`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap` |
+
+---
+
+### Character validation
+
+#### [ft_isalpha](./src/ft_isalpha.c)
+Checks if a character is an alphabetic letter (A-Z or a-z).  
+Returns 1 if true, 0 otherwise.
+
+#### [ft_isdigit](./src/ft_isdigit.c)
+Checks if a character is a decimal digit (0-9).  
+Returns 1 if true, 0 otherwise.
+
+#### [ft_isalnum](./src/ft_isalnum.c)
+Checks if a character is alphanumeric (letter or digit).  
+Returns 1 if true, 0 otherwise.
+
+#### [ft_isascii](./src/ft_isascii.c)
+Checks if a character is an ASCII character (0-127).  
+Returns 1 if true, 0 otherwise.
+
+#### [ft_isprint](./src/ft_isprint.c)
+Checks if a character is printable (ASCII 32-126).  
+Returns 1 if true, 0 otherwise.
+
+---
+
+### Character manipulation
+
+#### [ft_toupper](./src/ft_toupper.c)
+Converts a lowercase letter to uppercase.  
+If the character is not lowercase, returns it unchanged.
+
+#### [ft_tolower](./src/ft_tolower.c)
+Converts an uppercase letter to lowercase.  
+If the character is not uppercase, returns it unchanged.
+
+---
+
+### String manipulation
+
+#### [ft_strlen](./src/ft_strlen.c)
+Calculates the length of a null-terminated string.  
+Returns the number of characters before the null terminator.
+
+#### [ft_strdup](./src/ft_strdup.c)
+Allocates and returns a new string which is a duplicate of the input.  
+The memory for the new string is obtained with malloc.
+
+#### [ft_strchr](./src/ft_strchr.c)
+Searches for the first occurrence of a character in a string.  
+Returns a pointer to the matched character or NULL if not found.
+
+#### [ft_strrchr](./src/ft_strrchr.c)
+Searches for the last occurrence of a character in a string.  
+Returns a pointer to the matched character or NULL if not found.
+
+#### [ft_strncmp](./src/ft_strncmp.c)
+Compares up to n characters of two strings.  
+Returns the difference between the first differing characters.
+
+#### [ft_strjoin](./src/ft_strjoin.c)
+Concatenates two strings into a newly allocated string.  
+Returns the new string or NULL if allocation fails.
+
+#### [ft_split](./src/ft_split.c)
+Splits a string into an array of strings using a delimiter character.  
+Returns a NULL-terminated array of newly allocated strings.
+
+#### [ft_strtrim](./src/ft_strtrim.c)
+Removes all characters in set from the beginning and end of the string.  
+Returns a new trimmed string or NULL if allocation fails.
+
+#### [ft_substr](./src/ft_substr.c)
+Extracts a substring from a string, starting at a given index and length.  
+Returns a newly allocated substring or an empty string if out of bounds.
+
+#### [ft_strlcpy](./src/ft_strlcpy.c)
+Copies up to size - 1 characters from src to dst, NUL-terminating the result.  
+Returns the total length of src.
+
+#### [ft_strlcat](./src/ft_strlcat.c)
+Appends src to dst of size size (NUL-terminating the result).  
+Returns the total length of the string it tried to create.
+
+#### [ft_strnstr](./src/ft_strnstr.c)
+Locates the first occurrence of the substring little in big, where not more than len characters are searched.  
+Returns a pointer to the first occurrence or NULL if not found.
+
+#### [ft_striteri](./src/ft_striteri.c)
+Applies a function to each character of a string, passing its index as first argument.  
+The function is applied in-place to the string.
+
+#### [ft_strmapi](./src/ft_strmapi.c)
+Creates a new string by applying a function to each character of the input string.  
+The function receives the index and character as arguments.
+
+---
+
+### Memory manipulation
+
+#### [ft_memset](./src/ft_memset.c)
+Fills the first n bytes of the memory area pointed to by mem with the constant byte c.  
+Returns a pointer to the memory area mem.
+
+#### [ft_memcpy](./src/ft_memcpy.c)
+Copies n bytes from memory area src to memory area dst.  
+Returns a pointer to dst.
+
+#### [ft_memmove](./src/ft_memmove.c)
+Copies n bytes from src to dst, handling overlapping memory areas safely.  
+Returns a pointer to dst.
+
+#### [ft_memchr](./src/ft_memchr.c)
+Scans the first n bytes of the memory area for the character c.  
+Returns a pointer to the matching byte or NULL if not found.
+
+#### [ft_memcmp](./src/ft_memcmp.c)
+Compares the first n bytes of two memory areas.  
+Returns the difference between the first differing bytes.
+
+#### [ft_bzero](./src/ft_bzero.c)
+Erases the data in the n bytes of the memory area by writing zeros.  
+Does not return a value.
+
+#### [ft_calloc](./src/ft_calloc.c)
+Allocates memory for an array of nmemb elements of size bytes each and sets all bytes to zero.  
+Returns a pointer to the allocated memory or NULL if allocation fails.
+
+---
+
+### Conversion
+
+#### [ft_atoi](./src/ft_atoi.c)
+Converts a string to an integer, handling optional whitespace and sign.  
+Returns the converted integer value.
+
+#### [ft_itoa](./src/ft_itoa.c)
+Allocates and returns a string representing the integer n.  
+Handles negative numbers and zero.
+
+---
+
+### Output
+
+#### [ft_putchar_fd](./src/ft_putchar_fd.c)
+Outputs the character c to the given file descriptor fd.  
+Does not return a value.
+
+#### [ft_putstr_fd](./src/ft_putstr_fd.c)
+Outputs the string str to the given file descriptor fd.  
+Does not return a value.
+
+#### [ft_putendl_fd](./src/ft_putendl_fd.c)
+Outputs the string str to the given file descriptor fd, followed by a newline.  
+Does not return a value.
+
+#### [ft_putnbr_fd](./src/ft_putnbr_fd.c)
+Outputs the integer n to the given file descriptor fd.  
+Does not return a value.
+
+---
+
+### Linked lists
+
+#### [ft_lstnew](./src/ft_lstnew.c)
+Allocates and returns a new list node with the given content.  
+The next pointer is initialized to NULL.
+
+#### [ft_lstadd_front](./src/ft_lstadd_front.c)
+Adds the node new at the beginning of the list.  
+Updates the head pointer to the new node.
+
+#### [ft_lstadd_back](./src/ft_lstadd_back.c)
+Adds the node new at the end of the list.  
+Updates the last node's next pointer.
+
+#### [ft_lstsize](./src/ft_lstsize.c)
+Counts the number of nodes in a list.  
+Returns the count as an integer.
+
+#### [ft_lstlast](./src/ft_lstlast.c)
+Returns the last node of the list.  
+If the list is empty, returns NULL.
+
+#### [ft_lstdelone](./src/ft_lstdelone.c)
+Frees the memory of a single list node using the given delete function.  
+Does not free the next nodes.
+
+#### [ft_lstclear](./src/ft_lstclear.c)
+Deletes and frees all nodes of the list using the given delete function.  
+Sets the head pointer to NULL.
+
+#### [ft_lstiter](./src/ft_lstiter.c)
+Iterates the list and applies a function to the content of each node.  
+Does not modify the list structure.
+
+#### [ft_lstmap](./src/ft_lstmap.c)
+Creates a new list by applying a function to each node's content of the original list.  
+Uses a delete function to free memory if needed.
+
+---
+
+## Quick Example
+
 ```c
 #include "libft.h"
 
-void main()
+int main(void)
 {
-	...
+    char *str = "42";
+    int num = ft_atoi(str);
+
+    ft_putstr_fd("Converted number: ", 1);
+    ft_putnbr_fd(num, 1);
+    ft_putstr_fd("\n", 1);
+
+    char *duplicated = ft_strdup(str);
+    ft_putstr_fd("Duplicated string: ", 1);
+    ft_putstr_fd(duplicated, 1);
+    ft_putstr_fd("\n", 1);
+
+    ft_putstr_fd("Hello, 42!\n", 1);
+
+    return 0;
 }
 ```
 
-### Informe a localização do header na compilação
-Após finalizar a codificação do seu código-fonte, temos a parte de compilação dos objetos, para isso será preciso informar ao compilador onde está localizado o header (libft.h).  
-Para informar a localização do header utilize a flag `-I` do gcc e adicione a localização do arquivo *libft.h*, assim a compilação poderá ocorrer sem problemas.
-```bash
-gcc -I ./libft_folder/inc -c my_code.c
-```
-### Informe a localização do arquivo libft.a na linkagem
-Após a compilação dos objetos é hora de fazer a linkagem, para isso é necessário informar também a localização do arquivo *libft.a* e incluir sua utilização explicitamente.  
-Será necessários utilizar as flags `-l` e `-L` do gcc, `-l` para incluir a utilização da biblioteca explicitamente e `-L` para informar a localização do arquivo *.a*
-```bash
-gcc my_code.o -L libft_folder -l ft
-```
-Agora é só utilizá-la em suas aplicações!
+---
 
-## Funções disponíveis na libft
-Abaixo temos a listagem e descrição de todas as funções disponíveis na libft para você utilizar em seus projetos:
+## Norminette
 
-### Funções validadoras de caracteres
-- [int ft_isalpha(int c)](./src/ft_isalpha.c)   
-- [int ft_isdigit(int c)](./src/ft_isdigit.c) 
-- [int ft_isalnum(int c)](./src/ft_isalnum.c) 
-- [int ft_isascii(int c)](./src/ft_isascii.c) 
-- [int ft_isprint(int c)](./src/ft_isprint.c) 
+All code follows the [Norm 3.3.x](https://github.com/42School/norminette/blob/master/pdf/en.norm.pdf) and has been validated by [Norminette](https://github.com/42School/norminette).
 
-### Funções manipuladoras de caracteres
-- [int ft_toupper(int c)](./src/ft_toupper.c)
-- [int ft_tolower(int c)](./src/ft_tolower.c)
+---
 
+## License
 
-### Funções para trabalhar com strings
-- [size_t ft_strlen(const char \*str)](./src/ft_strlen.c) 
-- [char \*ft_strdup(const char \*str)](./src/ft_strdup.c) 
-- [char \*ft_strchr(const char \*str, int c)](./src/ft_strchr.c) 
-- [char \*ft_strrchr(const char \*str, int c)](./src/ft_strrchr.c) 
-- [int ft_strncmp(const char \*str1, const char \*str2, size_t c)](./src/ft_strncmp.c) 
-- [size_t ft_strlcpy(char \*dst, const char \*src, size_t size)](./src/ft_strlcpy.c) 
-- [size_t ft_strlcat(char \*dst, const char \*src, size_t size)](./src/ft_strlcat.c) 
-- [char \*ft_strnstr(const char \*big, const char \*little, size_t len)](./src/ft_strnstr.c) 
-- [char \*ft_strtrim(const char \*str, const char \*set)](./src/ft_strtrim.c) 
-- [char \*ft_substr(const char \*str, unsigned int start, size_t len)](./src/ft_substr.c) 
-- [char \*ft_strjoin(const char \*str1, const char \*str2)](./src/ft_strjoin.c) 
-- [char \*\*ft_split(const char \*str, char c)](./src/ft_split.c) 
-- [void ft_striteri(char \*str, void (\*f)(unsigned int, char \*))](./src/ft_striteri.c) 
-- [char \*ft_strmapi(const char \*str, char (\*f)(unsigned int, char))](./src/ft_strmapi.c) 
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
-### Funções para trabalhar com inteiros
-- [int ft_atoi(const char \*str)](./src/ft_atoi.c) 
-- [char \*ft_itoa(int n)](./src/ft_itoa.c) 
-
-### Funções para manipular diretamente a memória
-- [void ft_bzero(void \*mem, size_t n)](./src/ft_bzero.c)
-- [void \*ft_calloc(size_t nmemb, size_t size)](./src/ft_calloc.c) 
-- [int ft_memcmp(const void \*mem1, const void \*mem2, size_t n)](./src/ft_memcmp.c) 
-- [void \*ft_memcpy(void \*mem1, const void \*mem2, size_t n)](./src/ft_memcpy.c) 
-- [void \*ft_memmove(void \*dst, const void \*src, size_t n)](./src/ft_memmove.c) 
-- [void \*ft_memchr(const void \*mem, int c, size_t n)](./src/ft_memchr.c) 
-- [void \*ft_memset(void \*mem, int c, size_t n)](./src/ft_memset.c) 
-
-### Funções para impressão de strings
-- [void ft_putchar_fd(char c, int fd)](./src/ft_putchar_fd.c) 
-- [void ft_putnbr_fd(int n, int fd)](./src/ft_putnbr_fd.c) 
-- [void ft_putstr_fd(char \*str, int fd)](./src/ft_putstr_fd.c) 
-- [void ft_putendl_fd(char \*str, int fd)](./src/ft_putendl_fd.c) 
-
-### Funções para trabalhar com listas linkadas
-- [t_list \*ft_lstnew(void \*content)](./src/ft_lstnew.c) 
-- [void ft_lstadd_front(t_list \*\*lst, t_list \*new)](./src/ft_lstadd_front.c) 
-- [void ft_lstadd_back(t_list \*\*lst, t_list \*new)](./src/ft_lstadd_back.c) 
-- [int ft_lstsize(t_list \*lst)](./src/ft_lstsize.c) 
-- [t_list \*ft_lstlast(t_list \*lst)](./src/ft_lstlast.c) 
-- [void ft_lstdelone(t_list \*lst, void (\*del)(void \*))](./src/ft_lstdelone.c) 
-- [void ft_lstclear(t_list \*\*lst, void (\*del)(void \*))](./src/ft_lstclear.c) 
-- [void ft_lstiter(t_list \*lst, void (\*f)(void \*))](./src/ft_lstiter.c) 
-- [t_list \*ft_lstmap(t_list \*lst, void \*(\*f)(void \*), void (\*del)(void \*))](./src/ft_lstmap.c) 
-
-## Licença
-Esse projeto está sob a licença [MIT](https://opensource.org/license/mit/).
+---
